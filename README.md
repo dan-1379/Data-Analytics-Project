@@ -1,5 +1,7 @@
 # Smartphone Behaviour and Student Stress: A CRISP-DM Analysis of StudentLife
-**DBMS71008 Data Analytics – CA2 CRISP-DM Analytics Project** <br>
+**DBMS71008 Data Analytics – CA2 CRISP-DM Analytics Project** 
+
+<br>
 
 ![](images/Data%20Analytics%20DBMS71008.png)
 
@@ -12,42 +14,71 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
 
+<br>
 
-## Problem and Question
+# Project Scope and Approval
 
-**Context:** University students frequently report high stress levels, with heavy smartphone use and poor sleep commonly suggested as contributing factors. However, wellbeing services usually rely on students self-reporting difficulties. Passive smartphone sensing offers a way to observe daily behaviour continuously. This project uses the StudentLife dataset (Weichen, 2020) to investigate whether such behavioural signals are associated with students self-reported stress.
+## Problem and Intended User
+
+**Problem:** University students frequently report high stress levels, with heavy smartphone use and poor sleep commonly suggested as contributing factors. However, wellbeing services usually rely on students self-reporting difficulties. Passive smartphone sensing offers a way to observe daily behaviour continuously. This project uses the StudentLife dataset (Weichen, 2020) to investigate whether such behavioural signals are associated with students self-reported stress.
 
 **Intended User:** The intended audience of this analytics project is university support services. The findings should allow staff, such as counsellors, to identify patterns associated with elevated stress, which can inform outreach.
 
 **Question:** To what extent can passively sensed smartphone usage and sleep behaviour distinguish days on which university students report elevated stress from days on which they do not?
 
-**Unit of analysis:** One student on one calendar day.
+<br>
 
-**Candidate Method:** The objective is to distinguish high-stress days from other days, which is a binary classification task.
+## Dataset and Source
 
+| Detail | Info |
+| --- | --- |
+| Name | StudentLife |
+| Original source | Dartmouth College (Wang et al., 2014) – https://studentlife.cs.dartmouth.edu/ |
+| Copy used | Kaggle: https://www.kaggle.com/datasets/dartweichen/student-life |
+| Access date | 29 October 2026 |
+| Licence / terms | Unknown |
+| Scope | 48 students, one 10-week term (Spring 2013) |
+| Data used | Stress responses, phone lock, activity, sleep |
+| Raw data in repo? | No |
 
-## Objectives
+<br>
+
+## Unit of Analysis
+
+One student on one calendar day. Each row combines that student's daily phone use, sleep, and activity measures with their self-reported stress for the same day.
+
+<br>
+
+## Proposed Method
+
+**Task type:** Binary classification – distinguishing high-stress from other student-days.
+
+**Target:** Daily self-reported stress, recoded into high vs not high. The original
+response scale is not ordered by stress level, so it must be recoded before a
+threshold is applied.
+
+**Features:** Daily phone usage, sleep and physical activity.
+
+**Technique:** Decision tree, chosen because its rules are interpretable for
+non-technical support staff.
+
+<br>
+
+## Success Criteria
 
 *Practical Objective:* Help support services understand which daily behaviours are associated with elevated stress, to inform when proative support is offered.
 
 *Analytics Objective:* Build a binary classifier that distinguishes high stress from other student days using phone use, sleep, and activity features.
 
-## Potential Risks
+<br>
+
+## Risks
 
 | Risk | Why it matters | Mitigation |
 | --- | --- | --- |
-Sparse stress responses | Students did not answer everyday, meaning fewer labelled rows | Drop or flag students with too few responses |
+| Sparse stress responses | Students did not answer everyday, meaning fewer labelled rows | Drop or flag students with too few responses |
 | Missing sensor data | Phone off, uncharged, or not carried | Exclude days with too little data |
 | Ethics and Privacy | Behavioural and mental health data about real people | Frame the findings as patterns, not individual labels |
-
-
-## Dataset
-
-| Detail | Info |
-| --- | --- |
-| Name | StudentLife |
-| Publisher | dart_weichen |
-| Link | https://www.kaggle.com/datasets/dartweichen/student-life/data |
 
 ## Repository Structure
     README.md
