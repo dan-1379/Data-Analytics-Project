@@ -80,6 +80,8 @@ non-technical support staff.
 | Missing sensor data | Phone off, uncharged, or not carried | Exclude days with too little data |
 | Ethics and Privacy | Behavioural and mental health data about real people | Frame the findings as patterns, not individual labels |
 
+<br>
+
 ## Repository Structure
     README.md
     notebooks/   – main CRISP-DM notebook
