@@ -1,0 +1,7 @@
+# Ensures that the data files will not be commited
+
+data/raw/
+
+*.zip
+
+.venv/
